@@ -50,7 +50,7 @@ gulp.task('sass', function () {
         .pipe(sass().on('error', sass.logError))
         .pipe(mincss())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('dist/css'))
+        .pipe(gulp.dest('dist'))
         .pipe(browserSync.stream());
 });
 //**** ****//
@@ -63,7 +63,7 @@ gulp.task('js', function () {
         .pipe(sourcemaps.init())
         .pipe(uglify())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('dist/js'))
+        .pipe(gulp.dest('dist'))
         .pipe(browserSync.stream());
 });
 //**** ****//
@@ -94,16 +94,17 @@ gulp.task('watch', function () {
     gulp.watch('app/js/**/*.js', gulp.parallel('js'));
     gulp.watch('app/**/*.html', gulp.parallel('html'));
     gulp.watch('app/img/**/*.*', gulp.parallel('image'));
+    gulp.watch('app/json/*.json', gulp.parallel('json'));
 });
 //**** ****//
 
 
 //Построим проект
-gulp.task('build', gulp.series('clean', gulp.parallel('sass', 'js', 'html', 'image')));
+gulp.task('build', gulp.series('clean', gulp.parallel('sass', 'js', 'html', 'image', 'json')));
 //**** ****//
 
 
 
 //Построим, запустим и будем смотреть
-gulp.task('default', gulp.parallel('html', 'sass', 'js', 'image', 'browser-sync', 'watch'));
+gulp.task('default', gulp.parallel('json','html', 'sass', 'js', 'image', 'browser-sync', 'watch'));
 //**** ****//
