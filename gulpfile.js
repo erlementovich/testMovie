@@ -72,7 +72,7 @@ gulp.task('js', function () {
 gulp.task('json', function () {
     return gulp.src('app/json/*.json')
         .pipe(plumber())
-        .pipe(gulp.dest('dist'))
+        .pipe(gulp.dest('dist/json'))
         .pipe(browserSync.stream());
 });
 //**** ****//
