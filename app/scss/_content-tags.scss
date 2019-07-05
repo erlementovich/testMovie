@@ -1,0 +1,28 @@
+.content-tags {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  align-content: center;
+  color: yellow;
+  margin-bottom: 40px;
+}
+.tag {
+  p {
+    margin-left: 5px;
+  }
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 20px;
+  border: 1px solid #02b875;
+  background: none;
+  cursor: pointer;
+  transition: ease 0.3s;
+  width: 145px;
+  font-weight: 400;
+  font-size: 14px;
+}
+.fas {
+  font-size: 12px;
+}
