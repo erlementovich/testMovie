@@ -2,6 +2,7 @@
 //= components/search.js
 //= components/style.js
 //= components/tabs.js
-//= components/mark.js
 //= components/tags.js
+
+
 
