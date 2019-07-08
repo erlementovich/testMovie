@@ -3,6 +3,7 @@
 //= components/style.js
 //= components/tabs.js
 //= components/tags.js
+//= components/bookmarks.js
 
 
 

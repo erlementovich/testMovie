@@ -12,7 +12,12 @@ $.getJSON("json/tags.json", function (data) {
 var tagArrGreen = [];
 //поиск по тегам
 function setColor(e) {
+    $('#form-search').val('');
     $.getJSON("json/films.json", function (data) {
+        var dynamically = {
+            name: [],
+            page: []
+        };
         var output = "";
         if (e.classList.contains('tag')) { //изменеие массива тегов
             $(e).removeClass('tag');
@@ -25,24 +30,27 @@ function setColor(e) {
             tagArrGreen.splice(tagArrGreen.indexOf(e.textContent), 1);
         }
 
-//поиск по тегам
+        //поиск по тегам
         for (var i = 0; i < data.length; i++) {
             if (tagArrGreen.every(function (mytag) {
                 return data[i].tags.some(function (tag) {
                     return mytag === tag;
                 });
             })) {
-                output += "<tr>";
-                output += "<td>" + data[i].title + "</td>";
-                output += "<td width='2%'>" + "<i class='fas fa-star'></i>" + "</td>";
-                output += "</tr>";
 
+                dynamically.name[dynamically.name.length] = data[i].title;
+                dynamically.page[dynamically.page.length] = Math.floor((dynamically.page.length + 0) / 15 + 1);
             }
-        } 
-        $('table').html(output);
-//
+        }
+        Dynamic(dynamically);
     });
+
 }
+
+
+
+
+
 
 /*moreBtn.style.display = "";
             var counter1 = 0;
